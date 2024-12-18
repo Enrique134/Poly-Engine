@@ -1,12 +1,13 @@
-cmake_minimum_required(VERSION 3.10)
+# set project
 project(PolyEngine)
 
 # include directories
-include_directories(${CMAKE_SOURCE_DIR}/thirdparty)
-include_directories(${CMAKE_SOURCE_DIR}/main)
+include_directories("${CMAKE_SOURCE_DIR}/core")
+include_directories("${CMAKE_SOURCE_DIR}/main")
+include_directories("${CMAKE_SOURCE_DIR}/thirdparty")
 
-# link directories
-link_directories(${CMAKE_SOURCE_DIR}/thirdparty/libraries)
+# declare variables
+set(SRC_FILES)
 
-# Add executable
-add_executable(${CMAKE_SOURCE_DIR}/main/main.cpp)
+# add executable
+add_executable(PolyEngineExe "${CMAKE_SOURCE_DIR}/main/main.cpp" ${SRC_FILES})
