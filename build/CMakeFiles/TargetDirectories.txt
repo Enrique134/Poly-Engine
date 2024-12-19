@@ -1,0 +1,5 @@
+C:/Users/quiqu_fc701mm/Desktop/Projects/Repositories/Software/Poly Engine/Poly-Engine/build/CMakeFiles/PolyEngineExe.dir
+C:/Users/quiqu_fc701mm/Desktop/Projects/Repositories/Software/Poly Engine/Poly-Engine/build/CMakeFiles/edit_cache.dir
+C:/Users/quiqu_fc701mm/Desktop/Projects/Repositories/Software/Poly Engine/Poly-Engine/build/CMakeFiles/rebuild_cache.dir
+C:/Users/quiqu_fc701mm/Desktop/Projects/Repositories/Software/Poly Engine/Poly-Engine/build/thirdparty/CMakeFiles/edit_cache.dir
+C:/Users/quiqu_fc701mm/Desktop/Projects/Repositories/Software/Poly Engine/Poly-Engine/build/thirdparty/CMakeFiles/rebuild_cache.dir
