@@ -1,0 +1,1 @@
+target_sources(PolyEngineExe PRIVATE "/glad.c")

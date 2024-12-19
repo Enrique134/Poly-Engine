@@ -1,26 +1,18 @@
+# Define project
 project(Thirdparty)
 
-function(GetSrcFiles local_path)
-    # Get all files inside local path directory
-    file(GLOB files "${local_path}/*")
+# Get all files
+file(GLOB libraries "*")
 
-    # Iterate trough every file to find source files
-    foreach(file IN LISTS files)
+# Iterate trough every file
+foreach(library IN LISTS libraries)
 
-        if(IS_DIRECTORY file)
+    # Check if the file is a library
+    if(IS_DIRECTORY library)
 
-            # Add source file to source files set
-            GetSrcFiles(file)
-            
-        elseif(file MATCHES "\\.(c|cpp|m)$")
+        # Run the inside .cmake script to build the library
+        include("${library}/_build.cmake")
 
-            # Add source file to source files set
-            list(APPEND SRC_FILES file)
+    endif()
 
-        endif()
-
-    endforeach()
-
-endfunction()
-
-GetSrcFiles()
+endforeach()
