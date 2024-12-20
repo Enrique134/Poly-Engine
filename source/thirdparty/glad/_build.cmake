@@ -1,1 +1,0 @@
-target_sources(PolyEngineExe PRIVATE "${CMAKE_CURRENT_LIST_DIR}/src/glad.c")

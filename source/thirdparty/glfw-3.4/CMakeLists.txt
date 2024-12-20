@@ -15,10 +15,10 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 string(COMPARE EQUAL "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}" GLFW_STANDALONE)
 
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
-option(GLFW_BUILD_EXAMPLES "Build the GLFW example programs" ${GLFW_STANDALONE})
-option(GLFW_BUILD_TESTS "Build the GLFW test programs" ${GLFW_STANDALONE})
-option(GLFW_BUILD_DOCS "Build the GLFW documentation" ON)
-option(GLFW_INSTALL "Generate installation target" ON)
+option(GLFW_BUILD_EXAMPLES "Build the GLFW example programs" OFF)
+option(GLFW_BUILD_TESTS "Build the GLFW test programs" OFF)
+option(GLFW_BUILD_DOCS "Build the GLFW documentation" OFF)
+option(GLFW_INSTALL "Generate installation target" OFF)
 
 include(GNUInstallDirs)
 include(CMakeDependentOption)
@@ -42,7 +42,7 @@ cmake_dependent_option(GLFW_USE_HYBRID_HPG "Force use of high-performance GPU on
 cmake_dependent_option(USE_MSVC_RUNTIME_LIBRARY_DLL "Use MSVC runtime library DLL" ON
                        "MSVC" OFF)
 
-set(GLFW_LIBRARY_TYPE "${GLFW_LIBRARY_TYPE}" CACHE STRING
+set(GLFW_LIBRARY_TYPE "STATIC" CACHE STRING
     "Library type override for GLFW (SHARED, STATIC, OBJECT, or empty to follow BUILD_SHARED_LIBS)")
 
 if (GLFW_LIBRARY_TYPE)
@@ -120,6 +120,7 @@ write_basic_package_version_file(src/glfw3ConfigVersion.cmake
 # Add subdirectories
 #--------------------------------------------------------------------
 add_subdirectory(src)
+target_link_libraries(PolyEngineExe PRIVATE glfw)
 
 if (GLFW_BUILD_EXAMPLES)
     add_subdirectory(examples)
