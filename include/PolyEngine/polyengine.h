@@ -1,7 +1,3 @@
-int PolyEngine_initialize() {
+int poly_initialize();
 
-}
-
-int poly_engine_create_window() {
-
-}
+int poly_create_window(char* flag);

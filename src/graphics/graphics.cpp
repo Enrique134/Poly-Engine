@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 
+GLFWwindow* ActiveWindow;
+
 void error_callback(int error, const char* description)
 {
     fprintf(stderr, "Error: %s\n", description);
@@ -20,4 +22,8 @@ int initialize_graphics() {
 
 int terminate_graphics() {
     glfwTerminate();
+}
+
+int create_window(char* title, int width, int height) {
+    ActiveWindow = glfwCreateWindow(width, height, title, NULL, NULL);
 }
