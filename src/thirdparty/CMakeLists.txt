@@ -5,9 +5,6 @@
     - If it don't haves a CMakeLists.txt    ::  
 ]]
 
-# Define project
-project(Thirdparty)
-
 # Get all files
 file(GLOB libraries RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "*")
 
@@ -17,9 +14,9 @@ foreach(library IN LISTS libraries)
     # Check if the file is a library
     if(IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/${library}")
 
+        # Look for a CMakeLists.txt file
         if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${library}/CMakeLists.txt")
-
-            include_directories("${CMAKE_CURRENT_SOURCE_DIR}/${library}/include")
+            target_include_directories(PolyEngineLib PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/${library}/include")
             add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/${library}")
 
         else()
@@ -27,10 +24,12 @@ foreach(library IN LISTS libraries)
             file(GLOB src "${CMAKE_CURRENT_SOURCE_DIR}/${library}/src/*")
             add_library(${library} STATIC ${src})
             target_include_directories(${library} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/${library}/include")
-            target_link_libraries(PolyEngineExe PRIVATE ${library})
+            target_link_libraries(PolyEngineLib PRIVATE ${library})
 
         endif()
         
     endif()
 
 endforeach()
+
+target_link_libraries(PolyEngineLib PRIVATE glfw)

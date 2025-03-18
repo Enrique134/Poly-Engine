@@ -1,12 +1,39 @@
-#include"../include/PolyEngine/polyengine.h"
-#include"graphics/graphics.h"
+#include <PolyEngine/polyengine.h>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
-#include<stdio.h>
+int poly_initialize(void)
+{
+    GLFWwindow* window;
 
-int poly_initialize() {
-    initialize_graphics();
-}
+    /* Initialize the library */
+    if (!glfwInit())
+        return -1;
 
-int poly_create_window() {
-    
+    /* Create a windowed mode window and its OpenGL context */
+    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+    if (!window)
+    {
+        glfwTerminate();
+        return -1;
+    }
+
+    /* Make the window's context current */
+    glfwMakeContextCurrent(window);
+
+    /* Loop until the user closes the window */
+    while (!glfwWindowShouldClose(window))
+    {
+        /* Render here */
+        //glClear(GL_COLOR_BUFFER_BIT);
+
+        /* Swap front and back buffers */
+        glfwSwapBuffers(window);
+
+        /* Poll for and process events */
+        glfwPollEvents();
+    }
+
+    glfwTerminate();
+    return 0;
 }

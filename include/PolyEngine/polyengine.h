@@ -1,3 +1,1 @@
-int poly_initialize();
-
-int poly_create_window(char* flag);
+extern "C" int poly_initialize();

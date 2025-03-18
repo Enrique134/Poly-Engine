@@ -120,7 +120,6 @@ write_basic_package_version_file(src/glfw3ConfigVersion.cmake
 # Add subdirectories
 #--------------------------------------------------------------------
 add_subdirectory(src)
-target_link_libraries(PolyEngineExe PRIVATE glfw)
 
 if (GLFW_BUILD_EXAMPLES)
     add_subdirectory(examples)
